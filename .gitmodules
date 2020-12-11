@@ -1,3 +1,9 @@
 [submodule "submodules/vim-repeat"]
 	path = submodules/vim-repeat
 	url = https://github.com/tpope/vim-repeat
+[submodule "submodules/vim-fugitive"]
+	path = submodules/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "submodules/rust"]
+	path = submodules/rust
+	url = https://github.com/rust-lang/rust.vim

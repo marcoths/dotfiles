@@ -38,11 +38,3 @@ nnoremap <Down> :resize -2<CR>
 nnoremap <Left> :vertical resize +2<CR>
 nnoremap <Right> :vertical resize -2<CR>
 
-"call plug#begin()
-"  Plug 'rust-lang/rust.vim'
-"  Plug 'morhetz/gruvbox'
-"  Plug 'tpope/vim-fugitive'
-"  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"call plug#end()
-"
-"colorscheme gruvbox
