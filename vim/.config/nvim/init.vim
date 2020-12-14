@@ -1,3 +1,4 @@
+source $HOME/.config/nvim/plug-config/coc.vim
 syntax enable
 filetype plugin indent on
 
@@ -41,6 +42,13 @@ nnoremap <Down> :resize -2<CR>
 nnoremap <Left> :vertical resize +2<CR>
 nnoremap <Right> :vertical resize -2<CR>
 
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <M-[> <Esc>
+  tnoremap <C-v><Esc> <Esc>
+  " open a terminal buffer on the bottom
+  nnoremap <leader>q :bo 20sp +te <CR>
+endif
 
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
 let g:fzf_layout = { 'down': '~80%' }
@@ -51,3 +59,5 @@ nmap ?? :Rg!<CR>
 nmap <leader>p :Files!<CR>
 
 nmap cc :Commands!<CR>
+nmap <space>e :CocCommand explorer<CR>
+

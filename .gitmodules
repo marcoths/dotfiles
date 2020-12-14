@@ -20,3 +20,6 @@
 [submodule "submodules/gruvbox"]
 	path = submodules/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
+[submodule "submodules/vim-airline"]
+	path = submodules/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git

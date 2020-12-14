@@ -1,3 +1,4 @@
 {
-  "yaml.validate": true
+  "yaml.validate": true,
+  "explorer.icon.enableNerdfont": true
 }
