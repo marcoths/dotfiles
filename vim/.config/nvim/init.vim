@@ -1,6 +1,7 @@
 source $HOME/.config/nvim/plug-config/coc.vim
 syntax enable
 filetype plugin indent on
+set termguicolors
 
 set backspace=indent,eol,start
 set relativenumber
