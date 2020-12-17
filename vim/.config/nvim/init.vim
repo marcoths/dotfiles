@@ -1,4 +1,3 @@
-source $HOME/.config/nvim/plug-config/coc.vim
 syntax enable
 filetype plugin indent on
 
@@ -59,5 +58,6 @@ nmap ?? :Rg!<CR>
 nmap <leader>p :Files!<CR>
 
 nmap cc :Commands!<CR>
-nmap <space>e :CocCommand explorer<CR>
+
+nmap <leader>n :NERDTreeToggle<CR>
 

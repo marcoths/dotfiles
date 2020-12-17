@@ -29,3 +29,9 @@
 [submodule "submodules/nerdtree"]
 	path = submodules/nerdtree
 	url = https://github.com/preservim/nerdtree.git
+[submodule "submodules/unimpaired"]
+	path = submodules/unimpaired
+	url = https://tpope.io/vim/unimpaired.git
+[submodule "submodules/vim-unimpaired"]
+	path = submodules/vim-unimpaired
+	url = https://tpope.io/vim/unimpaired.git
