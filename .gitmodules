@@ -23,3 +23,9 @@
 [submodule "submodules/vim-airline"]
 	path = submodules/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
+[submodule "submodules/base16-shell"]
+	path = submodules/base16-shell
+	url = https://github.com/chriskempson/base16-shell.git
+[submodule "submodules/nerdtree"]
+	path = submodules/nerdtree
+	url = https://github.com/preservim/nerdtree.git
