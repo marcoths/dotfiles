@@ -4,3 +4,4 @@ if status --is-interactive
     source "$BASE16_SHELL/profile_helper.fish"
 end
 
+starship init fish | source
