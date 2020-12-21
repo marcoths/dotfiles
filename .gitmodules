@@ -35,3 +35,9 @@
 [submodule "submodules/vim-unimpaired"]
 	path = submodules/vim-unimpaired
 	url = https://tpope.io/vim/unimpaired.git
+[submodule "submodules/nvim-lspconfig"]
+	path = submodules/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "submodules/completion-nvim"]
+	path = submodules/completion-nvim
+	url = https://github.com/nvim-lua/completion-nvim.git
