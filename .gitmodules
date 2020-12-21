@@ -4,13 +4,6 @@
 [submodule "submodules/vim-fugitive"]
 	path = submodules/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "submodules/rust"]
-	path = submodules/rust
-	url = https://github.com/rust-lang/rust.vim
-[submodule "submodules/coc.nvim"]
-	path = submodules/coc.nvim
-	url = https://github.com/neoclide/coc.nvim.git
-	branch = release
 [submodule "submodules/fzf.vim"]
 	path = submodules/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
