@@ -5,3 +5,5 @@ if status --is-interactive
 end
 
 starship init fish | source
+set PATH $HOME/.cargo/bin $HOME/.local/bin $PATH
+

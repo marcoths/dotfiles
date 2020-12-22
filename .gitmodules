@@ -34,3 +34,6 @@
 [submodule "submodules/completion-nvim"]
 	path = submodules/completion-nvim
 	url = https://github.com/nvim-lua/completion-nvim.git
+[submodule "submodules/lsp_extensions.nvim"]
+	path = submodules/lsp_extensions.nvim
+	url = https://github.com/nvim-lua/lsp_extensions.nvim.git
