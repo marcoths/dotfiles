@@ -7,3 +7,14 @@ end
 starship init fish | source
 set PATH $HOME/.cargo/bin $HOME/.local/bin $PATH
 
+abbr g 'git'
+abbr ga 'git add'
+abbr gc 'git commit -m'
+abbr gca 'git commit --amend -m'
+abbr gco 'git checkout'
+abbr gb 'git branch'
+abbr gbl 'git blame'
+abbr gp 'git push'
+
+abbr vi 'nvim.appimage'
+
