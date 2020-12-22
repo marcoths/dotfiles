@@ -85,7 +85,7 @@ nmap cc :Commands!<CR>
 
 nmap <leader>n :NERDTreeToggle<CR>
 
-::lua <<EOF
+lua <<EOF
     local nvim_lsp = require('lspconfig')
     local on_attach = function(_, bufnr)
         require('completion').on_attach()
