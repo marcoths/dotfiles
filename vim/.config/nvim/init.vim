@@ -1,32 +1,12 @@
-syntax enable
-filetype plugin indent on
+lua require 'init'
+
+"syntax enable
+"filetype plugin indent on
 
 set backspace=indent,eol,start
-set relativenumber
-set hls
-set ignorecase
-set incsearch
-set wildmenu
-set cmdheight=2
-set tabstop=4 softtabstop=4
-set expandtab
-set autoread
-set mouse=a
-set termguicolors
-set clipboard=unnamedplus
-
 
 colorscheme gruvbox
-set background=dark
-" Set completeopt to have a better completion experience
-" :help completeopt
-" menuone: popup even when there's only one match
-" noinsert: Do not insert text until a selection is made
-" noselect: Do not select, force user to select one from the menu
-set completeopt=menuone,noinsert,noselect
 
-" Avoid showing extra messages when using completion
-set shortmess+=c
 
 " Allow color schemes to do bright colors without forcing bold.
 if &t_Co == 8 && $TERM !~# '^Eterm'
@@ -127,4 +107,3 @@ endfunction
 command! Format execute 'lua vim.lsp.buf.formatting()'
 autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
 \ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment" }
-
