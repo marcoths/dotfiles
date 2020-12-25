@@ -54,3 +54,4 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
         update_in_insert = true,
 }
 )
+vim.cmd('autocmd BufWritePre *.go lua vim.lsp.buf.formatting()')

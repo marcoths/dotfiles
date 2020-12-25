@@ -16,5 +16,6 @@ vim.o.background = 'dark'
 vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.shortmess = 'c'
 vim.o.ignorecase = true
+vim.wo.cursorline = true
 
 require'lsp_config'

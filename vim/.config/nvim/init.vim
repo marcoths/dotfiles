@@ -1,5 +1,3 @@
-lua require 'init'
-
 "syntax enable
 "filetype plugin indent on
 
@@ -7,6 +5,7 @@ set backspace=indent,eol,start
 
 colorscheme gruvbox
 
+lua require 'init'
 
 " Allow color schemes to do bright colors without forcing bold.
 if &t_Co == 8 && $TERM !~# '^Eterm'
@@ -15,12 +14,16 @@ endif
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
 endif
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+	\,sm:block-blinkwait175-blinkoff150-blinkon175
+
 
 " Set updatetime for CursorHold
 " 300ms of no cursor movement to trigger CursorHold
 set updatetime=300
 " Show diagnostic popup on cursor hold
 autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+
 
 " have a fixed column for the diagnostics to appear in
 " this removes the jitter when warnings/errors flow in
@@ -30,6 +33,7 @@ set signcolumn=yes
 let $RTP=split(&runtimepath, ',')[0]
 let $RC="$HOME/.config/nvim/init.vim"
 let g:mapleader = ","
+let g:completion_enable_auto_popup = 0
 
 command! Config execute ":e $MYVIMRC"
 command! Reload execute "source ~/.config/nvim/init.vim"
@@ -64,35 +68,7 @@ nmap <leader>p :Files!<CR>
 nmap cc :Commands!<CR>
 
 nmap <leader>n :NERDTreeToggle<CR>
-
-lua <<EOF
-    local nvim_lsp = require('lspconfig')
-    local on_attach = function(_, bufnr)
-        require('completion').on_attach()
-        local opts = { noremap=true, silent=true }
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', '1gD', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'g[', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'g]', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-    end
-    local servers = {'rust_analyzer'}
-    for _, lsp in ipairs(servers) do
-        nvim_lsp[lsp].setup {
-            on_attach = on_attach,
-        }
-    end
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics, {
-                virtual_text = true,
-                signs = true,
-                update_in_insert = true,
-        }
-  )
-EOF
+imap <silent> <c-Space> <Plug>(completion_trigger)
 
 " Trigger completion with <Tab>
 inoremap <silent><expr> <TAB>
