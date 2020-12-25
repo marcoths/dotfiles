@@ -15,6 +15,7 @@ abbr gco 'git checkout'
 abbr gb 'git branch'
 abbr gbl 'git blame'
 abbr gp 'git push'
+abbr gst 'git status'
 
 abbr vi 'nvim.appimage'
 
