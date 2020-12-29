@@ -37,3 +37,6 @@
 [submodule "submodules/lsp_extensions.nvim"]
 	path = submodules/lsp_extensions.nvim
 	url = https://github.com/nvim-lua/lsp_extensions.nvim.git
+[submodule "submodules/vim-gitgutter"]
+	path = submodules/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
