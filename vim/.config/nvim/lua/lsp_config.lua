@@ -5,10 +5,11 @@ end
 
 local custom_attach = function(client)
 	print("LSP started.");
+	vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 	require'completion'.on_attach(client)
-    map('n','ga','<cmd>lua vim.lsp.buf.code_action()<CR>')
-    map('n','g[','<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
-    map('n','g]','<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+	map('n','ga','<cmd>lua vim.lsp.buf.code_action()<CR>')
+	map('n','g[','<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
+	map('n','g]','<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
 	map('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>')
 	map('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
 	map('n','K','<cmd>lua vim.lsp.buf.hover()<CR>')
@@ -45,7 +46,14 @@ lsp.sumneko_lua.setup{
 	}
 }
 lsp.rust_analyzer.setup{
-        on_attach=custom_attach
+        on_attach=custom_attach,
+	settings = {
+		["rust-analyzer"] = {
+			diagnostics = {
+				disabled = {"unresolved-import"},
+			}
+		}
+	}
 }
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -55,3 +63,5 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
 }
 )
 vim.cmd('autocmd BufWritePre *.go lua vim.lsp.buf.formatting()')
+vim.cmd('autocmd BufWritePre *.rs lua vim.lsp.buf.formatting()')
+vim.api.nvim_command('autocmd BufEnter * lua require\'completion\'.on_attach()')
