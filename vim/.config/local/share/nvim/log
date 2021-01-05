@@ -1,0 +1,31 @@
+INFO  2021-01-05T14:05:10.304 92169 set_init_2:754: startup runtimepath/packpath value: /Users/marcoh/.config/nvim,/etc/xdg/nvim,/Users/marcoh/.config/local/share/nvim/site,/usr/local/share/nvim/site,/usr/share/nvim/site,/usr/local/share/nvim/runtime,/usr/local/lib/nvim,/usr/share/nvim/site/after,/usr/local/share/nvim/site/after,/Users/marcoh/.config/local/share/nvim/site/after,/etc/xdg/nvim/after,/Users/marcoh/.config/nvim/after
+INFO  2021-01-05T14:05:10.311 92169 emsg_multiline:679: E185: Cannot find color scheme 'gruvbox' (/Users/marcoh/dotfiles/vim/.config/nvim/init.vim (line 3))
+INFO  2021-01-05T14:05:10.336 92169 emsg_multiline:679: E5108: Error executing lua /Users/marcoh/.config/nvim/lua/lsp_config.lua:1: module 'lspconfig' not found:
+	no field package.preload['lspconfig']
+	no file './lspconfig.lua'
+	no file '/Users/marcoh/dev/src/github.com/neovim/neovim/.deps/usr/share/luajit-2.1.0-beta3/lspconfig.lua'
+	no file '/usr/local/share/lua/5.1/lspconfig.lua'
+	no file '/usr/local/share/lua/5.1/lspconfig/init.lua'
+	no file '/Users/marcoh/dev/src/github.com/neovim/neovim/.deps/usr/share/lua/5.1/lspconfig.lua'
+	no file '/Users/marcoh/dev/src/github.com/neovim/neovim/.deps/usr/share/lua/5.1/lspconfig/init.lua'
+	no file './lspconfig.so'
+	no file '/usr/local/lib/lua/5.1/lspconfig.so'
+	no file '/Users/marcoh/dev/src/github.com/neovim/neovim/.deps/usr/lib/lua/5.1/lspconfig.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so' (/Users/marcoh/dotfiles/vim/.config/nvim/init.vim (line 5))
+INFO  2021-01-05T14:05:10.347 92169 main:559: starting main loop
+INFO  2021-01-05T14:05:12.824 92169 emsg_multiline:681: E5108: Error executing lua [string ":lua"]:1: module 'lsp_extensions' not found:
+	no field package.preload['lsp_extensions']
+	no file './lsp_extensions.lua'
+	no file '/Users/marcoh/dev/src/github.com/neovim/neovim/.deps/usr/share/luajit-2.1.0-beta3/lsp_extensions.lua'
+	no file '/usr/local/share/lua/5.1/lsp_extensions.lua'
+	no file '/usr/local/share/lua/5.1/lsp_extensions/init.lua'
+	no file '/Users/marcoh/dev/src/github.com/neovim/neovim/.deps/usr/share/lua/5.1/lsp_extensions.lua'
+	no file '/Users/marcoh/dev/src/github.com/neovim/neovim/.deps/usr/share/lua/5.1/lsp_extensions/init.lua'
+	no file './lsp_extensions.so'
+	no file '/usr/local/lib/lua/5.1/lsp_extensions.so'
+	no file '/Users/marcoh/dev/src/github.com/neovim/neovim/.deps/usr/lib/lua/5.1/lsp_extensions.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+INFO  2021-01-05T14:05:19.307 92169 os_exit:586: Nvim exit: 0
+INFO  2021-01-05T14:16:24.368 92343 set_init_2:754: startup runtimepath/packpath value: /Users/marcoh/.config/nvim,/etc/xdg/nvim,/Users/marcoh/.config/local/share/nvim/site,/usr/local/share/nvim/site,/usr/share/nvim/site,/usr/local/share/nvim/runtime,/usr/local/lib/nvim,/usr/share/nvim/site/after,/usr/local/share/nvim/site/after,/Users/marcoh/.config/local/share/nvim/site/after,/etc/xdg/nvim/after,/Users/marcoh/.config/nvim/after
+INFO  2021-01-05T14:16:24.679 92343 main:559: starting main loop
+INFO  2021-01-05T14:16:28.292 92343 os_exit:586: Nvim exit: 0
