@@ -40,3 +40,6 @@
 [submodule "submodules/vim-gitgutter"]
 	path = submodules/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "zsh/.config/zsh/plugins/zsh-completions"]
+	path = zsh/.config/zsh/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git
