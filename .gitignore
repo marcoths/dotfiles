@@ -6,4 +6,4 @@ vim/.config/local/share/nvim/log
 vim/.config/local/share/nvim/lsp.log
 zsh/.config/zsh/.zsh_history
 vim/.config/local/share/nvim/log
-zsh
+zsh/*
