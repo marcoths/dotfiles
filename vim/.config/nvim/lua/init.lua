@@ -65,3 +65,8 @@ local autocmds = {
 };
 nvim_create_augroups(autocmds)
 require'lsp_config'
+require'nvim-treesitter.configs'.setup {
+	highlight = {
+		enable = true,
+	},
+}

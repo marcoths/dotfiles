@@ -2,6 +2,4 @@ font:
   normal:
     family: Dank Mono
     style: Regular
-  size: 16
-shell:
-  program: /usr/bin/fish
+  size: 18
