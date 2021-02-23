@@ -18,6 +18,7 @@ setopt CORRECT              # Spelling correction
 setopt CDABLE_VARS          # Change directory to a path stored in a variable.
 setopt EXTENDED_GLOB        # Use extended globbing syntax.
 
+autoload -Uz bd; bd
 
 # +---------+
 # | HISTORY |
@@ -82,7 +83,7 @@ export GOOGLE_CREDENTIALS="/Users/marcoh/.cfg/devCredentials.json"
 # For Go Modules
 export GOPRIVATE="nandosuk"
 # JWT for testing and development
-export NANDOS_API_PLATFORM_TOKEN="eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjaGVla3kubmFuZG9jYXMubmFuZG9zLnNlcnZpY2VzIiwidXNlIjoiRGV2IGFuZCB0ZXN0aW5nIG9uIHlvdXIgcGVyc29uYWwgbWFjaGluZSIsInZlciI6MSwiaWF0IjoxNTg5MjA2MzI4LCJuYmYiOjE1ODkyMDYzMjgsImV4cCI6NDc0MjgwNjMyOCwiaXNzIjoiaHR0cHM6Ly9pZHAuZGV2Lm5hbmRvcy5zZXJ2aWNlcyJ9.iww9EMQdM8XZep3xnqEXKe68Y9CyRnWR97daIIcbEhr6wpTMsqYkJxHwuHcaXsMzOeZfDMkRYW3OC7YTxS1DvOXZ3PB93OXTGxWVuxUMiQHIhZ7gzWLX5D1ncqJgkt_pGQDf4zyJoKraLDmiMJGLCaQKrYHybqtqNJ803xmsTtXlO9YxpZWkS7VhPt2tEEVfhSfLJ97yKJbO2tvGDcy7s9uJvNUoQevUCuVBShMYjhcpSlaf-1Vzo5IRjN8-0xes38EyYFHN9Ch9xBJW9m0cAAfwX0HeX6mlhyB61nkkkXHr0qtKJar8OQVyyPe6YIlFNCjJaxB3S8b9LxetpZgT3bouxbJsu_LALIbapn4rAM5zjPufIwNXgA2h97_d2_M7Q9cjo7aihgZj-SFoYNH1jBBKJm7gx_bfURlt4_sIzV3HIdsyLpT6St5AL_WmybUdG-nlH5-el-UdkvWZJympYZKPtTa7NBKRg7be1Dhni0wmd6mTALMISQcLK3O0QsqHkWj_ZBJ_Us77o3Od8NUBP2TM0nzuPlE43c2prOVIpc6iescNAIf88hBdcSbntZ7-3FGfioqnifR8XephVkBk4b5t4NmIT8YbsRCR_Mmq8KVuuQOmRcbohTzdTy-UNpSFGDWr8x8w0Cy4sYq07yK3SohSoSYhg-EoX8vwc2tGbeg"
+export NANDOS_API_PLATFORM_TOKEN="$( op get item nandos-api-platform-token --fields JWT)"
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -99,6 +100,7 @@ alias tf=terraform
 alias config='/usr/bin/git --git-dir=/Users/marcoh/.myconfig/ --work-tree=/Users/marcoh'
 alias nandos-dev='gcloud config configurations activate nandos-dev && gcloud config set compute/region europe-west2 && gcloud config set compute/zone europe-west2-a && gcloud auth activate-service-account --key-file ~/.cfg/devCredentials.json && gcloud config set project nandos-api-platform && if [ $(dig +short A -4 api.dev.nandos.services) = "35.235.54.199" ]; then gcloud container clusters get-credentials dev-preview-blue --region europe-west2; else gcloud container clusters get-credentials dev-preview-green --region europe-west2; fi'
 alias nandos-preprod='gcloud config configurations activate nandos-dev && gcloud config set compute/region europe-west2 && gcloud config set compute/zone europe-west2-a && gcloud auth activate-service-account --key-file ~/.cfg/devCredentials.json && gcloud config set project nandos-api-platform && if [ $(dig +short A -4 api.preprod.nandos.services) = "35.235.54.199" ]; then gcloud container clusters get-credentials dev-preprod-blue --region europe-west2; else gcloud container clusters get-credentials dev-preprod-green --region europe-west2; fi'
+alias nandos-dev-tooling='gcloud config configurations activate nandos-dev && gcloud config  set project nandos-api-platform && gcloud container clusters get-credentials $(gcloud container clusters list --filter="name:(dev-tooling, dev-tooling-blue, dev-tooling-green)" --limit=1 --format="value(selfLink.scope())") --region europe-west2'
 alias gcp1='gcloud config set compute/region us-west2 && gcloud config set compute/zone us-west2-b && gcloud config configurations activate gcp1'
 alias gcp2='gcloud config set account hello@marcohernandez.io && gcloud config set compute/region us-east1 && gcloud config set compute/zone us-east1-b && gcloud config configurations activate gcp2'
 alias gcp3='gcloud config configurations activate gcp3 && gcloud config set account hellogcp01@gmail.com && gcloud config set compute/region us-central1 && gcloud config set compute/zone us-central1-a && gcloud container clusters get credentials lfd-lab'
@@ -106,9 +108,9 @@ alias nandos-dev-test='gcloud config configurations activate nandos-dev && gclou
 alias nandos-prod='gcloud config configurations activate nandos-prod && gcloud config set project nandos-api-platform-production && gcloud config set compute/region europe-west2 && gcloud config set compute/zone europe-west2-a && gcloud auth activate-service-account --key-file ~/.cfg/prodCredentials.json && if [ $(dig +short A -4 api.nandos.services) = "34.89.31.15" ]; then gcloud container clusters get-credentials prod-blue --region europe-west2; else gcloud container clusters get-credentials prod-green --region europe-west2; fi'
 alias prod='export GOOGLE_APPLICATION_CREDENTIALS="~/.cfg/prodCredentials.json" && gcloud config configurations activate nandos-prod && gcloud config set project nandos-api-platform-production && gcloud config set account platform-provisioning-prod@nandos-api-platform-production.iam.gserviceaccount.com && gcloud config set project nandos-api-platform-production && gcloud auth activate-service-account --key-file ~/.cfg/prodCredentials.json && if [ $(dig +short A -4 api.nandos.services) = "34.89.31.15" ]; then gcloud container clusters get-credentials prod-blue --region europe-west2; else gcloud container clusters get-credentials prod-green --region europe-west2; fi'
 # open ~/.zshrc in using the default editor specified in $EDITOR
-alias ec="$EDITOR $HOME/.zshrc"
+alias ec="$EDITOR $HOME/.config/zsh/.zshrc"
 # source ~/.zshrc
-alias sc="source $HOME/.zshrc"
+alias sc="source $HOME/.config/zsh/.zshrc"
 
 # git
 alias gs='git status'
@@ -139,10 +141,26 @@ bindkey "^[e" end-of-line
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /usr/local/Cellar/kube-ps1/0.7.0/share/kube-ps1.sh 
-PROMPT='$(kube_ps1)'$PROMPT
+# bind keys for iTerm
+# source /usr/local/Cellar/kube-ps1/0.7.0/share/kube-ps1.sh 
+# PROMPT='$(kube_ps1)'$PROMPT
 # Source fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPS="--extended"
 export GOOGLE_APPLICATION_CREDENTIALS=$(find ~/.cfg -name devCredentials.json)
 
+# +---------------------+
+# | SYNTAX HIGHLIGHTING |
+# +---------------------+
+
+source $DOTFILES/zsh/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# +--------+
+# | PROMPT |
+# +--------+
+
+fpath=($DOTFILES/zsh/.config/zsh/prompt $fpath)
+#autoload -Uz prompt_setup; prompt_setup
+eval "$(starship init zsh)"
+
+export PATH="$HOME/.cargo/bin:$PATH"
