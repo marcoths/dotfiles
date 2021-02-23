@@ -1,5 +1,3 @@
-
-
 colorscheme gruvbox
 
 lua require 'init'
