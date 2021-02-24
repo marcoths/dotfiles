@@ -49,3 +49,6 @@
 [submodule "submodules/nvim-treesitter"]
 	path = submodules/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "submodules/vim-go"]
+	path = submodules/vim-go
+	url = https://github.com/fatih/vim-go.git
