@@ -52,3 +52,6 @@
 [submodule "submodules/vim-go"]
 	path = submodules/vim-go
 	url = https://github.com/fatih/vim-go.git
+[submodule "submodules/vim-terraform"]
+	path = submodules/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git

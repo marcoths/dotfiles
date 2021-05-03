@@ -48,6 +48,11 @@ vim.o.autowrite = true
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
 
+vim.g.terraform_align = 1
+vim.g.terraform_fmt_on_save = 1
+vim.g.go_def_mapping_enabled = 0
+
+
 local remap = vim.api.nvim_set_keymap
 
 remap('t', '<Esc>', "<C-\\><C-n>", { noremap = true })
@@ -55,6 +60,7 @@ remap("n", "<Up>", ":resize +2<CR>", { noremap = true })
 remap("n", "<Down>", ":resize -2<CR>", { noremap = true })
 remap("n", "<Left>", ":vertical resize +2<CR>", { noremap = true })
 remap("n", "<Right>", ":vertical resize -2<CR>", { noremap = true })
+remap("n", "<Leader>n", ":NERDTreeToggle<CR>", { noremap = true })
 local autocmds = {
 	diagnostics = {
 		{ "CursorHold", "*", "lua vim.lsp.diagnostic.show_line_diagnostics()" };

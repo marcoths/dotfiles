@@ -1,6 +1,6 @@
 local lsp = require'lspconfig'
 local map = function(type, key, value)
-        vim.fn.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true});
+        vim.api.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true});
 end
 
 local custom_attach = function(client)
@@ -47,6 +47,7 @@ function goimports(timeoutms)
 
 	vim.lsp.buf.formatting()
 end
+--[[
 lsp.sumneko_lua.setup{
 	on_attach=custom_attach,
 	settings = {
@@ -75,6 +76,7 @@ lsp.rust_analyzer.setup{
 		}
 	}
 }
+]]--
 lsp.gopls.setup{
 	on_attach=custom_attach,
 	cmd = {"gopls", "serve"},
@@ -87,6 +89,21 @@ lsp.gopls.setup{
 			staticcheck = true,
 		},
 	},
+	root_dir = lsp.util.root_pattern('.git');
+}
+
+local root_files = {
+	'setup.py',
+	'.git',
+	'requirements.txt',
+}
+local util = require 'lspconfig/util'
+lsp.pyright.setup{
+	on_attach=custom_attach,
+	filetypes = {"python"},
+	root_dir = function(filename)
+		return util.root_pattern(unpack(root_files))(filename) or util.path.dirname(filename)
+	end;
 }
 
 lsp.tsserver.setup{

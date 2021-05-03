@@ -34,7 +34,6 @@ nmap <leader>p :Files!<CR>
 
 nmap cc :Commands!<CR>
 
-nmap <leader>n :NERDTreeToggle<CR>
 imap <silent> <c-Space> <Plug>(completion_trigger)
 
 " Trigger completion with <Tab>
