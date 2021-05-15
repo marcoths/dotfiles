@@ -20,3 +20,5 @@ require('settings')
 require('keymappings')
 require('lang')
 require('config')
+vim.g.indentLine_char = '⦙'
+
