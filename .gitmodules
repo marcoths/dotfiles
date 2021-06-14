@@ -55,3 +55,6 @@
 [submodule "submodules/vim-terraform"]
 	path = submodules/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
+[submodule "zsh/.config/zsh/plugins/powerlevel10k"]
+	path = zsh/.config/zsh/plugins/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k
