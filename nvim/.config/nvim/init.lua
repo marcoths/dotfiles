@@ -16,9 +16,10 @@ vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when th
 -- Install plugins
 require('plugins')
 
+require('config')
 require('settings')
 require('keymappings')
 require('lang')
-require('config')
 vim.g.indentLine_char = '⦙'
+execute('autocmd BufWritePre *.go lua goimports(1000)')
 

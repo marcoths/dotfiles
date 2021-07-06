@@ -8,10 +8,10 @@ return require('packer').startup(function()
 	requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
 
   }
+  use { 'nvim-telescope/telescope-fzy-native.nvim' }
 
   -- LSP and completion
   use { 'neovim/nvim-lspconfig' }
-  use { 'nvim-lua/completion-nvim' }
 
   use { 'tpope/vim-fugitive' }
   use { 'tpope/vim-surround' }
@@ -29,4 +29,17 @@ return require('packer').startup(function()
 
   use {'sainnhe/gruvbox-material'}
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use {'nvim-treesitter/nvim-treesitter-textobjects'}
+  use {'hrsh7th/nvim-compe'}
+  use {'hrsh7th/vim-vsnip'}
+  use {'hrsh7th/vim-vsnip-integ'}
+  use {'ray-x/lsp_signature.nvim'}
+  use {'radenling/vim-dispatch-neovim'}
+  use {'tpope/vim-dispatch'}
+  use {'hashivim/vim-terraform'}
+  use {'onsails/lspkind-nvim'}
+  use {'kosayoda/nvim-lightbulb'}
+  use {'hoob3rt/lualine.nvim'}
+  use {'kyazdani42/nvim-web-devicons'}
+  use {'ryanoasis/vim-devicons'}
   end)
