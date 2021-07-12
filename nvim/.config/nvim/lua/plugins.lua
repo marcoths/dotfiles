@@ -42,4 +42,5 @@ return require('packer').startup(function()
   use {'hoob3rt/lualine.nvim'}
   use {'kyazdani42/nvim-web-devicons'}
   use {'ryanoasis/vim-devicons'}
+  use {'Yggdroot/indentLine'}
   end)

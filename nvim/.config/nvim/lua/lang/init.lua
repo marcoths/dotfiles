@@ -64,6 +64,7 @@ for _, lsp in ipairs(servers) do
         require "lsp_signature".on_attach()
     }
 end
+require'lspconfig'.yamlls.setup{}
 
 nvim_lsp.gopls.setup{
     cmd = {'gopls'},

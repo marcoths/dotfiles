@@ -8,6 +8,7 @@ cmd 'syntax enable'
 cmd 'filetype plugin indent on'
 cmd 'colorscheme gruvbox-material'
 
+opt.hlsearch = false
 opt.guicursor = ""
 opt.expandtab = true
 opt.shiftwidth = indent
