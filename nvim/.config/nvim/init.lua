@@ -13,6 +13,7 @@ end
 vim.cmd [[packadd packer.nvim]]
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
 
+
 -- Install plugins
 require('plugins')
 
@@ -21,5 +22,9 @@ require('settings')
 require('keymappings')
 require('lang')
 vim.g.indentLine_char = '⦙'
-execute('autocmd BufWritePre *.go lua goimports(1000)')
-
+--execute('autocmd BufWritePre *.go lua vim.lsp.buf.formatting()')
+--execute('autocmd BufWritePre *.go lua goimports(1000)')
+-- Format on save
+execute("autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()")
+-- Import on save
+execute("autocmd BufWritePre *.go :silent! lua require('go.format').goimport()")

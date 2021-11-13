@@ -2,6 +2,7 @@ local utils = require('utils')
 local map = utils.map
 
 map('n', '<C-l>', '<cmd>noh<CR>') -- Clear highlights
+map('n', '<BS>', '<C-^>')
 map('i', 'jk', '<Esc>')           -- jk to escape
 map('n','<leader>cd',':cd %:p:h<CR>:pwd<CR>') -- change pwd to opened file
 map('n','<Up>', ':resize +2<CR>')

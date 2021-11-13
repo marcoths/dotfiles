@@ -72,6 +72,10 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["cheatsheet.nvim"] = {
+    loaded = true,
+    path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/cheatsheet.nvim"
+  },
   ["gitsigns.nvim"] = {
     config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0" },
     loaded = true,
@@ -80,6 +84,14 @@ _G.packer_plugins = {
   ["gruvbox-material"] = {
     loaded = true,
     path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/gruvbox-material"
+  },
+  ["gv.vim"] = {
+    loaded = true,
+    path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/gv.vim"
+  },
+  indentLine = {
+    loaded = true,
+    path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/indentLine"
   },
   ["lsp_signature.nvim"] = {
     loaded = true,
@@ -130,6 +142,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/popup.nvim"
   },
+  ["telescope-fzy-native.nvim"] = {
+    loaded = true,
+    path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/telescope.nvim"
@@ -149,6 +165,10 @@ _G.packer_plugins = {
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/vim-fugitive"
+  },
+  ["vim-projectionist"] = {
+    loaded = true,
+    path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/vim-projectionist"
   },
   ["vim-surround"] = {
     loaded = true,

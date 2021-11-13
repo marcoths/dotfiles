@@ -2,15 +2,21 @@ local nvim_lsp = require('lspconfig')
 
 vim.lsp.set_log_level("debug")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+--capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+    vim.lsp.handlers.hover, { focusable = false }
+    )
 
 -- custom attach function for nvim-lspconfig
 local on_attach = function(client, bufnr)
 
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
+    
+    require "lsp_signature".on_attach()
+    
+    --Enable completion triggered by <c-x><c-o>
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- Mappings
@@ -30,18 +36,11 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>e','<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
     buf_set_keymap('n', '[d', '<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-
-    -- Set some keybinds conditional on server capabilities
-    if client.resolved_capabilities.document_formatting then
-        buf_set_keymap("n", "ff","<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-        vim.api.nvim_exec([[
-            autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
-        ]], false)
-    elseif client.resolved_capabilities.document_range_formatting then
-        buf_set_keymap("n", "ff","<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
-    end
+    buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+    buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
     -- Set autocommands conditional on server_capabilities
+    -- this is running damn slow
     if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec([[
       hi LspReferenceRead cterm=bold ctermbg=DarkMagenta guibg=LightYellow
@@ -54,6 +53,7 @@ local on_attach = function(client, bufnr)
       augroup END
     ]], false)
     end
+
 end
 
 
@@ -61,29 +61,38 @@ local servers = {"pyright", "rust_analyzer", "tsserver"}
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
-        require "lsp_signature".on_attach()
+        settings = {
+            ["rust-analyzer"] = {
+                assist = {
+                    importGranularity = "module",
+                    importPrefix = "by_self",
+                },
+                cargo = {
+                    loadOutDirsFromCheck = true
+                },
+                procMacro = {
+                    enable = true
+                },
+            }
+        }
     }
 end
-require'lspconfig'.yamlls.setup{}
+require'lspconfig'.yamlls.setup{
+    on_attach = on_attach,
+}
+
 
 nvim_lsp.gopls.setup{
     cmd = {'gopls'},
     capabilities = capabilities,
     settings = {
         gopls = {
-            experimentalPostfixCompletions = true,
-            analyses = {
-                unusedparams = true,
-                shadow = true,
-            },
-            staticcheck = true,
+            buildFlags = {"-tags=integration"},
         },
     },
     on_attach = on_attach,
-    require "lsp_signature".on_attach()
 }
-
-function goimports(timeoutms)
+  function goimports(timeoutms)
     local context = { source = { organizeImports = true } }
     vim.validate { context = { context, "t", true } }
 
@@ -92,12 +101,12 @@ function goimports(timeoutms)
 
     -- See the implementation of the textDocument/codeAction callback
     -- (lua/vim/lsp/handler.lua) for how to do this properly.
-    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeoutms)
+    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
     if not result or next(result) == nil then return end
     local actions = result[1].result
     if not actions then return end
     local action = actions[1]
- 
+
     -- textDocument/codeAction can return either Command[] or CodeAction[]. If it
     -- is a CodeAction, it can have either an edit, a command or both. Edits
     -- should be executed first.
@@ -111,6 +120,5 @@ function goimports(timeoutms)
     else
       vim.lsp.buf.execute_command(action)
     end
-end
+  end
 
-vim.api.nvim_command('autocmd BufWritePre *.go lua goimports(1000)')

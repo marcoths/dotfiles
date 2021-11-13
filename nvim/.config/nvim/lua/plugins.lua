@@ -17,6 +17,9 @@ return require('packer').startup(function()
   use { 'tpope/vim-surround' }
   use { 'tpope/vim-vinegar' }
   use { 'tpope/vim-unimpaired' }
+  use { 'tpope/vim-projectionist' }
+  use { 'junegunn/gv.vim' }
+
   use {
         'lewis6991/gitsigns.nvim',
         requires = {
@@ -43,4 +46,17 @@ return require('packer').startup(function()
   use {'kyazdani42/nvim-web-devicons'}
   use {'ryanoasis/vim-devicons'}
   use {'Yggdroot/indentLine'}
+  use {'sudormrfbin/cheatsheet.nvim',
+      requires = {
+          {'nvim-telescope/telescope.nvim'},
+          {'nvim-lua/popup.nvim'},
+          {'nvim-lua/plenary.nvim'},
+      }
+  }
+  use {'ray-x/go.nvim',
+        requires = {
+            {'nvim-treesitter/nvim-treesitter'},
+            {'nvim-treesitter-textobjects/nvim-treesitter-textobjects'},
+        }
+ }
   end)
