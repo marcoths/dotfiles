@@ -61,3 +61,6 @@
 [submodule "zsh/.config/zsh/plugins/zsh-z"]
 	path = zsh/.config/zsh/plugins/zsh-z
 	url = https://github.com/agkozak/zsh-z.git
+[submodule "zsh/.config/zsh/plugins/spaceship-prompt"]
+	path = zsh/.config/zsh/plugins/spaceship-prompt
+	url = https://github.com/spaceship-prompt/spaceship-prompt.git
