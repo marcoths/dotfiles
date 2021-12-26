@@ -8,6 +8,7 @@ require "user.telescope"
 require "user.treesitter"
 require "user.autopairs"
 require "user.gitsigns"
+require "user.nvim-tree"
 
 --vim.g.indentLine_char = '⦙'
 --execute('autocmd BufWritePre *.go lua vim.lsp.buf.formatting()')
