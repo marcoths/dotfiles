@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["FixCursorHold.nvim"] = {
+    loaded = true,
+    path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
+    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -163,6 +168,11 @@ _G.packer_plugins = {
     path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
     url = "https://github.com/tamago324/nlsp-settings.nvim"
   },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -239,6 +249,11 @@ _G.packer_plugins = {
     path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["vim-bbye"] = {
+    loaded = true,
+    path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/vim-bbye",
+    url = "https://github.com/moll/vim-bbye"
+  },
   ["vim-devicons"] = {
     loaded = true,
     path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/vim-devicons",
@@ -263,6 +278,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/vim-terraform",
     url = "https://github.com/hashivim/vim-terraform"
+  },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/Users/marco.hernandez/.config/local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 

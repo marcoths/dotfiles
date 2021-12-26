@@ -10,6 +10,7 @@ require "user.autopairs"
 require "user.gitsigns"
 require "user.nvim-tree"
 require "user.null-ls"
+require "user.whichkey"
 
 --vim.g.indentLine_char = '⦙'
 --execute('autocmd BufWritePre *.go lua vim.lsp.buf.formatting()')

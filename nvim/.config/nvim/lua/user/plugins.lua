@@ -43,7 +43,7 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-
+  use "antoinemadec/FixCursorHold.nvim"
   use {
 	'nvim-telescope/telescope.nvim',
 	requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
@@ -52,6 +52,7 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs"
 
   use { 'nvim-telescope/telescope-fzy-native.nvim' }
+  use "folke/which-key.nvim"
 
   -- LSP and completion
   use "neovim/nvim-lspconfig"
