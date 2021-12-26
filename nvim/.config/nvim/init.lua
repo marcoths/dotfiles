@@ -7,6 +7,7 @@ require "user.lsp"
 require "user.telescope"
 require "user.treesitter"
 require "user.autopairs"
+require "user.gitsigns"
 
 --vim.g.indentLine_char = '⦙'
 --execute('autocmd BufWritePre *.go lua vim.lsp.buf.formatting()')
