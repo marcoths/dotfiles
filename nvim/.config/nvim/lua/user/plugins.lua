@@ -49,11 +49,12 @@ return packer.startup(function(use)
 	requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
 
   }
+  use "windwp/nvim-autopairs"
 
   use { 'nvim-telescope/telescope-fzy-native.nvim' }
 
   -- LSP and completion
-  use { 'neovim/nvim-lspconfig' }
+  use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim"
   use {'hrsh7th/nvim-cmp'}
@@ -69,15 +70,15 @@ return packer.startup(function(use)
         requires = {
             'nvim-lua/plenary.nvim'
         },
-        config = function() 
-            require('gitsigns').setup() 
+        config = function()
+            require('gitsigns').setup()
         end
     }
 
-  use {'sainnhe/gruvbox-material'}
-  use {'folke/tokyonight.nvim'}
+  use "sainnhe/gruvbox-material"
+  use "folke/tokyonight.nvim"
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use {'nvim-treesitter/nvim-treesitter-textobjects'}
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
 
 
   use "L3MON4D3/LuaSnip" --snippet engine

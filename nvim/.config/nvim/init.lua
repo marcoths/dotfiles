@@ -4,6 +4,9 @@ require "user.plugins"
 require "user.colorscheme"
 require "user.cmp"
 require "user.lsp"
+require "user.telescope"
+require "user.treesitter"
+require "user.autopairs"
 
 --vim.g.indentLine_char = '⦙'
 --execute('autocmd BufWritePre *.go lua vim.lsp.buf.formatting()')
