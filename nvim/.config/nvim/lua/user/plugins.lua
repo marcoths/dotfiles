@@ -110,7 +110,8 @@ return packer.startup(function(use)
       config = function() require'nvim-tree'.setup {} end
   }
   use {'github/copilot.vim'}
-
+  use "moll/vim-bbye"
+  use "jose-elias-alvarez/null-ls.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
