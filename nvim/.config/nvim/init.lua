@@ -11,6 +11,8 @@ require "user.gitsigns"
 require "user.nvim-tree"
 require "user.null-ls"
 require "user.whichkey"
+require "user.bufferline"
+require "user.project"
 
 --vim.g.indentLine_char = '⦙'
 --execute('autocmd BufWritePre *.go lua vim.lsp.buf.formatting()')

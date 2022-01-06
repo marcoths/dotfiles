@@ -64,14 +64,6 @@ nvim_tree.setup {
     update_cwd = true,
     ignore_list = {},
   },
-  system_open = {
-    cmd = nil,
-    args = {},
-  },
-  filters = {
-    dotfiles = false,
-    custom = {},
-  },
   git = {
     enable = true,
     ignore = true,
@@ -81,7 +73,7 @@ nvim_tree.setup {
     width = 30,
     height = 30,
     hide_root_folder = false,
-    side = "left",
+    side = "right",
     auto_resize = true,
     mappings = {
       custom_only = false,
@@ -93,10 +85,6 @@ nvim_tree.setup {
     },
     number = false,
     relativenumber = false,
-  },
-  trash = {
-    cmd = "trash",
-    require_confirm = true,
   },
   quit_on_open = 0,
   git_hl = 1,

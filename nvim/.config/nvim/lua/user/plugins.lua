@@ -112,7 +112,9 @@ return packer.startup(function(use)
   }
   use {'github/copilot.vim'}
   use "moll/vim-bbye"
+  use "akinsho/bufferline.nvim"
   use "jose-elias-alvarez/null-ls.nvim"
+  use "ahmedkhalf/project.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
