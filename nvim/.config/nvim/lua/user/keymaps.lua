@@ -88,3 +88,6 @@ keymap('n', '<leader>e', ":NvimTreeToggle<CR>", opts)
 keymap('n', '<leader>lo', ":NvimTreeFindFile<CR>", opts)
 keymap('n', '<leader>rp', ":NvimTreeRefresh<CR>", opts)
 
+-- Bufferline
+keymap('n', '[b', ":BufferLineCyclePrev<CR>", opts)
+keymap('n', ']b', ":BufferLineCyclePrev<CR>", opts)
