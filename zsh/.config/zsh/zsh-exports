@@ -1,0 +1,11 @@
+
+# Go development
+export GOPATH="${HOME}/dev"
+export GOBIN="${GOPATH}/bin"
+export PATH="$PATH:${GOPATH}/bin"
+export GOOGLE_CREDENTIALS="/Users/marco.hernandez/.cfg/dev-credentials.json"
+export GITHUB_TOKEN=$(cat "/Users/marco.hernandez/.cfg/github-token")
+# For Go Modules
+export GOPRIVATE="github.com/nandosuk"
+
+export PATH="$HOME/.cargo/bin:$PATH"

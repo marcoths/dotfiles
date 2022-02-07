@@ -2,6 +2,7 @@ alias k="kubectl"
 alias kctx="kubectx"
 alias kns="kubens"
 alias ks="kubeseal"
+alias kro="kubectl argo rollouts"
 alias openports="lsof -i -P -n | grep LISTEN"
 alias -g Z='| fzf'
 alias tnew=tmux new -s $(basename $PWD)
@@ -9,15 +10,20 @@ alias tf=terraform
 alias gcp1='gcloud config configurations activate personal1 && gcloud config set compute/region us-central1 && gcloud config set project hello-marco-k8s'
 alias pers-dev='gcloud config configurations activate personal1 && gcloud config set compute/region us-central1 && gcloud config set compute/zone us-central1-a && gcloud auth activate-service-account --key-file ~/.cfg/gce-default-marco.json && gcloud config set project hello-marco-k8s'
 alias nandos-dev='gcloud config configurations activate nandos-dev && gcloud config set compute/region europe-west2 && gcloud config set compute/zone europe-west2-a && gcloud auth activate-service-account --key-file ~/.cfg/dev-credentials.json && gcloud config set project nandos-api-platform && if [ $(dig +short A -4 api.dev.nandos.services) = "35.235.54.199" ]; then gcloud container clusters get-credentials dev-preview-blue --region europe-west2; else gcloud container clusters get-credentials dev-preview-green --region europe-west2; fi'
-alias nandos-preprod='gcloud config configurations activate nandos-dev && gcloud config set compute/region europe-west2 && gcloud config set compute/zone europe-west2-a && gcloud auth activate-service-account --key-file ~/.cfg/devCredentials.json && gcloud config set project nandos-api-platform && if [ $(dig +short A -4 api.preprod.nandos.services) = "35.235.54.199" ]; then gcloud container clusters get-credentials dev-preprod-blue --region europe-west2; else gcloud container clusters get-credentials dev-preprod-green --region europe-west2; fi'
+alias nandos-preprod='export GOOGLE_CREDENTIALS=~/.cfg/dev-credentials.json && gcloud config configurations activate nandos-dev && gcloud config set compute/region europe-west2 && gcloud config set compute/zone europe-west2-a && gcloud auth activate-service-account --key-file ~/.cfg/dev-credentials.json && gcloud config set project nandos-api-platform && if [ $(dig +short A -4 api.preprod.nandos.services) = "35.246.26.213" ]; then gcloud container clusters get-credentials dev-preprod-blue --region europe-west2; else gcloud container clusters get-credentials dev-preprod-green --region europe-west2; fi'
 alias nandos-dev-tooling='gcloud config configurations activate nandos-dev && gcloud config  set project nandos-api-platform && gcloud container clusters get-credentials $(gcloud container clusters list --filter="name:(dev-tooling, dev-tooling-blue, dev-tooling-green)" --limit=1 --format="value(selfLink.scope())") --region europe-west2'
 alias nandos-dev-test='gcloud config configurations activate nandos-dev && gcloud config set project nandos-api-platform && gcloud config set compute/region europe-west2 && gcloud config set compute/zone europe-west2-a && gcloud auth activate-service-account --key-file ~/.cfg/devCredentials.json && gcloud container clusters get-credentials $(gcloud container clusters list --filter="name:(dev-test, dev-test-blue, dev-test-green)" --limit=1 --format="value(selfLink.scope())") --region europe-west2'
-alias nandos-prod='gcloud config configurations activate nandos-prod && gcloud config set project nandos-api-platform-production && gcloud config set compute/region europe-west2 && gcloud config set compute/zone europe-west2-a && gcloud auth activate-service-account --key-file ~/.cfg/prodCredentials.json && if [ $(dig +short A -4 api.nandos.services) = "34.89.31.15" ]; then gcloud container clusters get-credentials prod-blue --region europe-west2; else gcloud container clusters get-credentials prod-green --region europe-west2; fi'
-alias prod='export GOOGLE_APPLICATION_CREDENTIALS="~/.cfg/prodCredentials.json" && gcloud config configurations activate nandos-prod && gcloud config set project nandos-api-platform-production && gcloud config set account platform-provisioning-prod@nandos-api-platform-production.iam.gserviceaccount.com && gcloud config set project nandos-api-platform-production && gcloud auth activate-service-account --key-file ~/.cfg/prodCredentials.json && if [ $(dig +short A -4 api.nandos.services) = "34.89.31.15" ]; then gcloud container clusters get-credentials prod-blue --region europe-west2; else gcloud container clusters get-credentials prod-green --region europe-west2; fi'
+alias nandos-prod='export GOOGLE_CREDENTIALS=~/.cfg/prod-credentials.json && gcloud config configurations activate nandos-prod && gcloud config set project nandos-api-platform-production && gcloud config set compute/region europe-west2 && gcloud config set compute/zone europe-west2-a && gcloud auth activate-service-account --key-file ~/.cfg/prod-credentials.json && if [ $(dig +short A -4 api.nandos.services) = "34.89.31.15" ]; then gcloud container clusters get-credentials prod-blue --region europe-west2; else gcloud container clusters get-credentials prod-green --region europe-west2; fi'
+alias infra-dev='unset GOOGLE_OAUTH_ACCESS TOKEN && unset GOOGLE_APPLICATION_CREDENTIALS && unset GOOGLE_CREDENTIALS && export PROJECT_ID=infra-dev-marco-herna-acc72192 && export TF_SA_NAME=terraform && gcloud config configurations activate infra-dev-nandos'
 # open ~/.zshrc in using the default editor specified in $EDITOR
 alias ec="$EDITOR $HOME/.config/zsh/.zshrc"
 # source ~/.zshrc
 alias sc="source $HOME/.config/zsh/.zshrc"
+alias docker="podman"
+
+
+alias token-dev='cd ~/dev/src/github.com/nandosuk/nandos-platform/lib/cluster-test && ./get_token.sh dev'
+alias token-preprod='cd ~/dev/src/github.com/nandosuk/nandos-platform/lib/cluster-test && ./get_token.sh preprod'
 
 # git
 alias gs='git status'
