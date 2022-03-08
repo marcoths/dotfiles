@@ -64,6 +64,7 @@ vim.cmd([[
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
+  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
