@@ -77,3 +77,5 @@ keymap('n', '<leader>rp', ":NvimTreeRefresh<CR>", opts)
 -- Bufferline
 keymap('n', '[b', ":BufferLineCyclePrev<CR>", opts)
 keymap('n', ']b', ":BufferLineCyclePrev<CR>", opts)
+
+keymap('n', "<leader>fo", ":Format<cr>", opts)

@@ -70,6 +70,7 @@ vim.cmd([[
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use 'nvim-lualine/lualine.nvim'
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
