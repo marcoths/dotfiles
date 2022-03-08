@@ -67,6 +67,9 @@ vim.cmd([[
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   -- Git
   use "lewis6991/gitsigns.nvim"
+  use "akinsho/bufferline.nvim"
+  use "moll/vim-bbye"
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
