@@ -73,6 +73,7 @@ vim.cmd([[
   use 'nvim-lualine/lualine.nvim'
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
+  use "lewis6991/impatient.nvim"
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
