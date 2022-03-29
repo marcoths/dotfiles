@@ -21,11 +21,10 @@ local options = {
 	updatetime = 300,
 	writebackup = false,
 	expandtab = true,
-	shiftwidth = 2,
-	tabstop = 2,
+	shiftwidth = 4,
+	tabstop = 4,
 	cursorline = true,
 	number = true,
-	relativenumber = true,
 	numberwidth = 4,
 	signcolumn = "yes",
 	wrap = false,
@@ -40,3 +39,8 @@ end
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
+
+vim.env.RTP=vim.env.XDG_CONFIG_HOME.."/nvim"
+-- Highlight on yank
+vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
+
