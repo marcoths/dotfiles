@@ -69,11 +69,12 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	-- Git
 	use("lewis6991/gitsigns.nvim")
-	use("akinsho/bufferline.nvim")
+	use("tpope/vim-fugitive")
+	use({ "akinsho/bufferline.nvim", branch = "main" })
 	use("moll/vim-bbye")
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("nvim-lualine/lualine.nvim")
-	use("akinsho/toggleterm.nvim")
+	use({ "akinsho/toggleterm.nvim", branch = "main" })
 	use("ahmedkhalf/project.nvim")
 	use("lewis6991/impatient.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
@@ -82,6 +83,7 @@ return packer.startup(function(use)
 	use("folke/which-key.nvim")
 	use({ "iamcco/markdown-preview.nvim", ft = "markdown", run = "cd app && yarn install" })
 	use("morhetz/gruvbox")
+	use("ray-x/lsp_signature.nvim")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
