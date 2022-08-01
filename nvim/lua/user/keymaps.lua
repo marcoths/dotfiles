@@ -63,8 +63,8 @@ keymap('', '<leader>c', '"+y', opts) -- copy to clipboard in normal, visual, sel
 
 
 -- Telescope
-keymap('n', '<leader>ps', ":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep for > ')})<CR>" , opts)
-keymap('n', '<leader>f', ":lua require('telescope.builtin').find_files()<CR>", opts)
+keymap('n', '<leader>ts', ":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep for > ')})<CR>" , opts)
+keymap('n', '<leader>f', ":lua require('telescope.builtin').find_files({ hidden = true })<CR>", opts)
 keymap('n', '<leader>g', ":lua require('telescope.builtin').live_grep()<CR>", opts)
 keymap('n', '<leader>b', ":lua require('telescope.builtin').buffers()<CR>", opts)
 keymap('n', '<C-p>', ":lua require('telescope.builtin').git_files()<CR>", opts)

@@ -84,6 +84,7 @@ return packer.startup(function(use)
 	use({ "iamcco/markdown-preview.nvim", ft = "markdown", run = "cd app && yarn install" })
 	use("morhetz/gruvbox")
 	use("ray-x/lsp_signature.nvim")
+    use("jose-elias-alvarez/nvim-lsp-ts-utils")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
